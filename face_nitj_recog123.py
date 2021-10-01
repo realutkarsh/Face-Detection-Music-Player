@@ -10,18 +10,18 @@ se=fc.face_encodings(s,sl)[0]
 ae=fc.face_encodings(a,sl)[0]
 she=fc.face_encodings(sh,shl)[0]
 te=[se,ae,she]
-l=['SauR','Amit','Shubham']
+l=['Rohit','Chintu','Manjulika']
 v=cv2.VideoCapture(0)
 flag=0
 while(1):
     r,i=v.read()
     il=fc.face_locations(i)
-    #print(il,len(il))
+    print(il,len(il))
     if(len(il)>0)and(flag==1):
-        re=fc.face_encodings(i,il)[0]
-        res=fc.compare_faces(te,re)
-        print(res)
-        ind=res.index(True)
+        re_new=fc.face_encodings(i,il)[0]
+        result=fc.compare_faces(te,re_new)
+        print(result)
+        ind=result.index(True)
         print(l[ind],' face is recognized')
         flag=0
     else:
